@@ -1,33 +1,17 @@
 """
 Serwer MCP dla Garmin Connect, skupiony na jednym celu: rozmowa o
 treningach, progresji i regeneracji
-
-Instalacja:
-    pip install mcp garminconnect
-
-Zaloguj się raz przez explore_garmin.py, żeby token zapisał się w
-~/.garminconnect - ten serwer korzysta z tego samego tokenstore.
-
-Konfiguracja Claude Desktop (claude_desktop_config.json):
-    {
-      "mcpServers": {
-        "garmin-training": {
-          "command": "python",
-          "args": ["/pelna/sciezka/do/garmin_mcp_server.py"]
-        }
-      }
-    }
 """
 
 from datetime import date, timedelta
 from pathlib import Path
 
 import garminconnect
-from mcp.server.fastmcp import FastMCP
+from mcp.server.mcpserver import MCPServer, Context
 
 TOKENSTORE = str(Path.home() / ".garminconnect")
 
-mcp = FastMCP("garmin-training")
+mcp = MCPServer("garmin-training")
 
 # Logowanie raz, przy starcie serwera - korzysta z zapisanego tokena,
 # więc Claude Desktop odpalając ten serwer w tle nie musi pytać o hasło.

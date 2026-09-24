@@ -2,9 +2,6 @@
 Prosty skrypt do zabawy z python-garminconnect.
 Cel: zalogować się i zobaczyć, jak wyglądają surowe dane z różnych endpointów.
 
-Instalacja:
-    pip install garminconnect
-
 Pierwsze uruchomienie zapyta o email/hasło (i kod MFA, jeśli masz włączone).
 Token zostanie zapisany w ~/.garminconnect, więc kolejne uruchomienia
 nie będą wymagały ponownego logowania.
